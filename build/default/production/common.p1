@@ -1,0 +1,278 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"56 C:\Program Files\Microchip\xc8\v2.50\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\include\c99\stdlib.h: 56: void srand (unsigned);
+[v _srand `(v ~T0 @X0 0 ef1`ui ]
+"55
+[; ;C:\Program Files\Microchip\xc8\v2.50\pic\include\c99\stdlib.h: 55: int rand (void);
+[v _rand `(i ~T0 @X0 0 ef ]
+"15 ./common.h
+[; ;./common.h: 15: uint32 timestamp = 0;
+[v _timestamp `ul ~T0 @X0 1 e ]
+[i _timestamp
+-> -> -> 0 `i `l `ul
+]
+"5 common.c
+[; ;common.c: 5: void Delay_ms(uint32 ms)
+[v _Delay_ms `(v ~T0 @X0 1 ef1`ul ]
+"6
+[; ;common.c: 6: {
+{
+[e :U _Delay_ms ]
+"5
+[; ;common.c: 5: void Delay_ms(uint32 ms)
+[v _ms `ul ~T0 @X0 1 r1 ]
+"6
+[; ;common.c: 6: {
+[f ]
+"7
+[; ;common.c: 7:   uint32 temp = timestamp;
+[v _temp `ul ~T0 @X0 1 a ]
+[e = _temp _timestamp ]
+"8
+[; ;common.c: 8:   while((timestamp - temp) < ms);
+[e $U 7  ]
+[e :U 8 ]
+[e :U 7 ]
+[e $ < - _timestamp _temp _ms 8  ]
+[e :U 9 ]
+"9
+[; ;common.c: 9: }
+[e :UE 6 ]
+}
+"11
+[; ;common.c: 11: void randinit(void)
+[v _randinit `(v ~T0 @X0 1 ef ]
+"12
+[; ;common.c: 12: {
+{
+[e :U _randinit ]
+[f ]
+"13
+[; ;common.c: 13:   srand((uint8)timestamp);
+[e ( _srand (1 -> -> _timestamp `uc `ui ]
+"14
+[; ;common.c: 14: }
+[e :UE 10 ]
+}
+"16
+[; ;common.c: 16: uint8 getrand(uint8 N)
+[v _getrand `(uc ~T0 @X0 1 ef1`uc ]
+"17
+[; ;common.c: 17: {
+{
+[e :U _getrand ]
+"16
+[; ;common.c: 16: uint8 getrand(uint8 N)
+[v _N `uc ~T0 @X0 1 r1 ]
+"17
+[; ;common.c: 17: {
+[f ]
+"18
+[; ;common.c: 18:   return (rand() % (N + 1));
+[e ) -> % ( _rand ..  + -> _N `i -> 1 `i `uc ]
+[e $UE 11  ]
+"19
+[; ;common.c: 19: }
+[e :UE 11 ]
+}
+"21
+[; ;common.c: 21: uint8 dig_to_smb(uint8 dig)
+[v _dig_to_smb `(uc ~T0 @X0 1 ef1`uc ]
+"22
+[; ;common.c: 22: {
+{
+[e :U _dig_to_smb ]
+"21
+[; ;common.c: 21: uint8 dig_to_smb(uint8 dig)
+[v _dig `uc ~T0 @X0 1 r1 ]
+"22
+[; ;common.c: 22: {
+[f ]
+"23
+[; ;common.c: 23:   switch (dig)
+[e $U 14  ]
+"24
+[; ;common.c: 24:   {
+{
+"25
+[; ;common.c: 25:     case 0: return 48;
+[e :U 15 ]
+[e ) -> -> 48 `i `uc ]
+[e $UE 12  ]
+"26
+[; ;common.c: 26:     case 1: return 49;
+[e :U 16 ]
+[e ) -> -> 49 `i `uc ]
+[e $UE 12  ]
+"27
+[; ;common.c: 27:     case 2: return 50;
+[e :U 17 ]
+[e ) -> -> 50 `i `uc ]
+[e $UE 12  ]
+"28
+[; ;common.c: 28:     case 3: return 51;
+[e :U 18 ]
+[e ) -> -> 51 `i `uc ]
+[e $UE 12  ]
+"29
+[; ;common.c: 29:     case 4: return 52;
+[e :U 19 ]
+[e ) -> -> 52 `i `uc ]
+[e $UE 12  ]
+"30
+[; ;common.c: 30:     case 5: return 53;
+[e :U 20 ]
+[e ) -> -> 53 `i `uc ]
+[e $UE 12  ]
+"31
+[; ;common.c: 31:     case 6: return 54;
+[e :U 21 ]
+[e ) -> -> 54 `i `uc ]
+[e $UE 12  ]
+"32
+[; ;common.c: 32:     case 7: return 55;
+[e :U 22 ]
+[e ) -> -> 55 `i `uc ]
+[e $UE 12  ]
+"33
+[; ;common.c: 33:     case 8: return 56;
+[e :U 23 ]
+[e ) -> -> 56 `i `uc ]
+[e $UE 12  ]
+"34
+[; ;common.c: 34:     case 9: return 57;
+[e :U 24 ]
+[e ) -> -> 57 `i `uc ]
+[e $UE 12  ]
+"35
+[; ;common.c: 35:   }
+}
+[e $U 13  ]
+[e :U 14 ]
+[e [\ _dig , $ -> 0 `i 15
+ , $ -> 1 `i 16
+ , $ -> 2 `i 17
+ , $ -> 3 `i 18
+ , $ -> 4 `i 19
+ , $ -> 5 `i 20
+ , $ -> 6 `i 21
+ , $ -> 7 `i 22
+ , $ -> 8 `i 23
+ , $ -> 9 `i 24
+ 13 ]
+[e :U 13 ]
+"36
+[; ;common.c: 36:   return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 12  ]
+"37
+[; ;common.c: 37: }
+[e :UE 12 ]
+}
+"39
+[; ;common.c: 39: void u8_to_str(uint8* str, uint8 num)
+[v _u8_to_str `(v ~T0 @X0 1 ef2`*uc`uc ]
+"40
+[; ;common.c: 40: {
+{
+[e :U _u8_to_str ]
+"39
+[; ;common.c: 39: void u8_to_str(uint8* str, uint8 num)
+[v _str `*uc ~T0 @X0 1 r1 ]
+[v _num `uc ~T0 @X0 1 r2 ]
+"40
+[; ;common.c: 40: {
+[f ]
+"41
+[; ;common.c: 41:   str[0] = num%10;
+[e = *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x -> % -> _num `i -> 10 `i `uc ]
+"42
+[; ;common.c: 42:   str[1] = (num%100)/10;
+[e = *U + _str * -> -> 1 `i `x -> -> # *U _str `i `x -> / % -> _num `i -> 100 `i -> 10 `i `uc ]
+"43
+[; ;common.c: 43:   str[2] = num/100;
+[e = *U + _str * -> -> 2 `i `x -> -> # *U _str `i `x -> / -> _num `i -> 100 `i `uc ]
+"44
+[; ;common.c: 44:   if(num > 99)
+[e $ ! > -> _num `i -> 99 `i 26  ]
+"45
+[; ;common.c: 45:   {
+{
+"46
+[; ;common.c: 46:     for(uint8 i = 0; i < 3; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 3 `i 27  ]
+[e $U 28  ]
+[e :U 27 ]
+{
+"47
+[; ;common.c: 47:     str[i] = dig_to_smb(str[i]);
+[e = *U + _str * -> _i `ux -> -> # *U _str `ui `ux ( _dig_to_smb (1 *U + _str * -> _i `ux -> -> # *U _str `ui `ux ]
+"48
+[; ;common.c: 48:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 3 `i 27  ]
+[e :U 28 ]
+}
+"49
+[; ;common.c: 49:     str[3] = '\0';
+[e = *U + _str * -> -> 3 `i `x -> -> # *U _str `i `x -> -> 0 `ui `uc ]
+"50
+[; ;common.c: 50:   }
+}
+[e :U 26 ]
+"51
+[; ;common.c: 51:   if((num > 9) && (num < 100))
+[e $ ! && > -> _num `i -> 9 `i < -> _num `i -> 100 `i 30  ]
+"52
+[; ;common.c: 52:   {
+{
+"53
+[; ;common.c: 53:     for(uint8 i = 0; i < 2; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 2 `i 31  ]
+[e $U 32  ]
+[e :U 31 ]
+{
+"54
+[; ;common.c: 54:     str[i] = dig_to_smb(str[i]);
+[e = *U + _str * -> _i `ux -> -> # *U _str `ui `ux ( _dig_to_smb (1 *U + _str * -> _i `ux -> -> # *U _str `ui `ux ]
+"55
+[; ;common.c: 55:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 2 `i 31  ]
+[e :U 32 ]
+}
+"56
+[; ;common.c: 56:     str[2] = '\0';
+[e = *U + _str * -> -> 2 `i `x -> -> # *U _str `i `x -> -> 0 `ui `uc ]
+"57
+[; ;common.c: 57:   }
+}
+[e :U 30 ]
+"58
+[; ;common.c: 58:   if(num < 10)
+[e $ ! < -> _num `i -> 10 `i 34  ]
+"59
+[; ;common.c: 59:   {
+{
+"60
+[; ;common.c: 60:     str[0] = dig_to_smb(str[0]);
+[e = *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x ( _dig_to_smb (1 *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x ]
+"61
+[; ;common.c: 61:     str[1] = '\0';
+[e = *U + _str * -> -> 1 `i `x -> -> # *U _str `i `x -> -> 0 `ui `uc ]
+"62
+[; ;common.c: 62:   }
+}
+[e :U 34 ]
+"63
+[; ;common.c: 63: }
+[e :UE 25 ]
+}
